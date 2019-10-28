@@ -1,0 +1,20 @@
+.points {
+	padding-top : 30px;
+	background-color : lightgray;
+	text-align : center;
+}
+
+.points p  {
+	
+	background-color : lightgray;
+	text-align : center;
+	font-weight : bold;
+}
+
+
+
+li {
+	list-style-type : none;
+	display : inline-block;
+	margin-right: 20px;
+}
