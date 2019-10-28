@@ -1,0 +1,10 @@
+.champs {
+	border-radius : 10px;
+	background-color : lightblue;
+	padding : 50px;
+}
+
+.col-md-12 {
+	margin-top : 5px;
+	margin-bottom : 5px;
+}
