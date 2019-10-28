@@ -20,4 +20,8 @@ export class ScientifiquesComponent implements OnInit {
   ngOnInit() {
   }
 
+  clickSur(evt){
+    console.log(evt);
+  }
+
 }

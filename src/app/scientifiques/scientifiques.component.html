@@ -1,10 +1,41 @@
 <div>
 <h1>{{titre}} - Détail sur {{personne.nom}} {{personne.prenom}}</h1>
+<h2>Scientifique
+</h2>
 <ul>
-  <li>Nom : {{personne.nom}}</li>
-  <li>Prenom : {{personne.prenom}}</li>
-  <li>Découverte : {{personne.decouverte}}</li>
-  <li>Description : {{personne.description}}</li>
+  <li (click)="clickSur($event)" ><b>Nom :</b> {{personne.nom}}</li>
+  <li><b>Prenom :</b> {{personne.prenom}}</li>
 </ul>
+
+<h2>Détail</h2>
+<ul>
+  <li><b>Découverte :</b> {{personne.decouverte}}</li>
+  <li><b>Description : </b>{{personne.description}}</li>
+</ul>
+
+<h2>Modification</h2>
+
+<ul>
+  <li>Nom : <input [(ngModel)]="personne.nom" /></li>
+  <li>Prenom : <input [(ngModel)]="personne.prenom"/></li>
+  <li>Découverte : <input [(ngModel)]="personne.decouverte" /></li>
+  <li>Description : <textarea [(ngModel)]="personne.description" ></textarea> </li>
+
+  
+</ul>
+
+<h2>POC</h2>
+
+  {{toto}}
+  {{hello}}
+  {{ville}}
+  <input type="checkbox" [(ngModel)]="toto"/>
+  <input type="range" [(ngModel)]="hello" />
+  <input [(ngModel)]="hello" />
+  <select [(ngModel)]="ville" >
+    <option value="34200">Sète</option>
+    <option value="69000">Lyon</option>
+    <option value="75000">Paris</option>
+  </select>
 </div>
 
