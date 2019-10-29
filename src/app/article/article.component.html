@@ -1,16 +1,16 @@
 
 	<div class="article row">
 		<div class="points col-4">
-			<p>3</p>
+			<p>{{votes}}</p>
 			<p>POINTS</p>
 
 		</div>
 		<div class="col-8">
-			<h3>Angular</h3>
-			<p>(angular.io)</p>
+			<h3>{{titre}}</h3>
+			<p>({{domaine}})</p>
 			<ul>
-				<li> <a href="">upvote</a> </li>
-				<li> <a href="">downvote</a> </li>
+				<li> <a href="" (click)="votePour($event)" >upvote</a> </li>
+				<li> <a href="" (click)="voteContre($event)">downvote</a> </li>
 			</ul>
 		</div>
 	</div>
