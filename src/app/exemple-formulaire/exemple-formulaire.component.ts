@@ -33,6 +33,19 @@ export class ExempleFormulaireComponent implements OnInit {
 
     this.champNom = this.monFormulaire.controls["nomDeFamille"]; 
     this.champPrenom = this.monFormulaire.controls["prénom"]; 
+
+   /* this.champNom.valueChanges.subscribe((value)=> {
+        console.log(this,value);
+    })
+
+    this.champPrenom.valueChanges.subscribe((value)=> {
+      console.log(this,value);
+    })*/
+
+    this.monFormulaire.valueChanges.subscribe((value)=>{
+      console.log(this,value);
+    })
+
   }
 
   cles(obj){
