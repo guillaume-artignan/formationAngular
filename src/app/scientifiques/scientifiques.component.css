@@ -4,3 +4,15 @@ ul {
 
     list-style-type: none;
 }
+
+.selected {
+    text-decoration: underline;
+}
+
+.pair {
+    color : brown;
+}
+
+.impair {
+    color : orangered;
+}
