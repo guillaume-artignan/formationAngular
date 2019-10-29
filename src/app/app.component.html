@@ -5,17 +5,15 @@
 			Ajouter un lien 
 		</h3>
 		<label class="col-md-12" for="titre">Titre</label>
-		<input class="col-md-12" name="titre" />
+		<input [(ngModel)]="titreArticle" class="col-md-12" name="titre" />
 		<label class="col-md-12" for="lien">Lien</label>
-		<input class="col-md-12" name="lien"/>
-		<button  class="col-md-4 btn btn-info">Ajouter</button>
+		<input class="col-md-12" name="lien" #champLien />
+		<button  class="col-md-4 btn btn-info" (click)="ajouterArticle(champLien)">Ajouter</button>
 	</div>
 </div>
 
 <div class="container">
-	<en3s-article></en3s-article>
-	<en3s-article></en3s-article>
-	<en3s-article></en3s-article>
+	<en3s-article *ngFor="let a of articles" [monArticle]="a" ></en3s-article>
 </div>
 	
 

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Article } from "./article.model";
 
 @Component({
   selector: 'en3s-article',
@@ -7,18 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ArticleComponent implements OnInit {
 
-  votes : number = 0;
-  titre : string = "Angular";
-  domaine : string= "Angular.io"
+  @Input("monArticle")
+  article : Article;
 
   votePour(evt){
     evt.preventDefault();
-    this.votes++;
+    this.article.voteUp();
   }
 
   voteContre(evt){
     evt.preventDefault();
-    this.votes--;
+    this.article.voteDown();
   }
 
   constructor() { }

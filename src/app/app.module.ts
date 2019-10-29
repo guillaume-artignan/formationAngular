@@ -22,6 +22,6 @@ import { CalculatriceComponent } from './calculatrice/calculatrice.component';
   //Contient les services
   providers: [],
   //La classe de démarrage
-  bootstrap: [ScientifiquesComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

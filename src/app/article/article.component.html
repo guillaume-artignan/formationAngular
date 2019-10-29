@@ -1,13 +1,14 @@
 
 	<div class="article row">
-		<div class="points col-4">
-			<p>{{votes}}</p>
+		<div class="points col-4"
+			 [class.low]="article.getVote()<0" >
+			<p>{{article.getVote()}}</p>
 			<p>POINTS</p>
 
 		</div>
 		<div class="col-8">
-			<h3>{{titre}}</h3>
-			<p>({{domaine}})</p>
+			<h3>{{article.getTitre()}}</h3>
+			<p>({{article.getDomaine()}})</p>
 			<ul>
 				<li> <a href="" (click)="votePour($event)" >upvote</a> </li>
 				<li> <a href="" (click)="voteContre($event)">downvote</a> </li>
