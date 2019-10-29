@@ -4,7 +4,7 @@
   <li *ngFor="let p of personnes; let num = index"  
       [ngClass]="{pair:num%2==0,impair:num%2==1}"
       (click)="selectionne(p)"
-      [class.selected]="personne==p">
+      [class.selected]="personne==p" >
       N°{{num+1}} - {{p.prenom}} {{p.nom}}
   </li>
 
