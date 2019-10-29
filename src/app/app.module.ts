@@ -1,10 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { ScientifiquesComponent } from './scientifiques/scientifiques.component';
 import { CalculatriceComponent } from './calculatrice/calculatrice.component';
+import { ExempleNgContentComponent } from './exemple-ng-content/exemple-ng-content.component';
+import { ComposantAComponent } from './composant-a/composant-a.component';
+import { ExempleFormulaireComponent } from './exemple-formulaire/exemple-formulaire.component';
 
 @NgModule({
   //Contient des composants
@@ -12,16 +15,20 @@ import { CalculatriceComponent } from './calculatrice/calculatrice.component';
     AppComponent,
     ArticleComponent,
     ScientifiquesComponent,
-    CalculatriceComponent
+    CalculatriceComponent,
+    ExempleNgContentComponent,
+    ComposantAComponent,
+    ExempleFormulaireComponent
   ],
   //Contient des Modules
   imports: [
     BrowserModule, 
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   //Contient les services
   providers: [],
   //La classe de démarrage
-  bootstrap: [AppComponent]
+  bootstrap: [ExempleFormulaireComponent]
 })
 export class AppModule { }

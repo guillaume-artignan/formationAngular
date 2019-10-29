@@ -9,11 +9,18 @@
 		<label class="col-md-12" for="lien">Lien</label>
 		<input class="col-md-12" name="lien" #champLien />
 		<button  class="col-md-4 btn btn-info" (click)="ajouterArticle(champLien)">Ajouter</button>
+		<button *ngIf="edition" class="col-md-4 btn btn-danger" (click)="modifierArticle() ">Modifier</button>
 	</div>
 </div>
 
 <div class="container">
-	<en3s-article *ngFor="let a of articles" [monArticle]="a" ></en3s-article>
+	<div class="row">
+		<en3s-article  *ngFor="let a of articles" 
+					[monArticle]="a" 
+					(tooBad)="supprime($event)" 
+					(selected)="selectionArticle($event)" ></en3s-article>
+
+	</div>
 </div>
 	
 

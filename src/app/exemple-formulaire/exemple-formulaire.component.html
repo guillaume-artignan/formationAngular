@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <form #f="ngForm"  (ngSubmit)="valider(f.value)" >
+      
+      <label class="offset-1 col-10">Nom</label>
+      <input  name="Nom" 
+              class="col-10 offset-1" 
+              type="text" 
+              ngModel/>
+
+      <label class="col-10 offset-1">Prenom</label>
+      <input  name="Prenom"  
+              class="col-10 offset-1 " 
+              type="text" 
+              ngModel/>
+
+      <label class="col-2 offset-1" for="">M</label>
+      <input class="col-1" value="M." name="civilite" type="radio" ngModel>
+      <label class="col-2" for="">Mme</label>
+      <input class="col-1" value="Mme" name="civilite" type="radio" ngModel>
+      <label class="col-2" for="">Mlle</label>
+      <input class="col-1" value="Mlle" name="civilite" type="radio" ngModel>
+
+      <input class="btn btn-info offset-1" 
+             type="submit" 
+             value="Valider" 
+            />
+      
+    </form>
+  </div>
+</div>
+
+<form [formGroup]="monFormulaire"  (ngSubmit)="valider(monFormulaire.value)" >
+     
+<div class="container">
+    <div class="row">
+      <div class="col-12 alert alert-danger"  *ngIf="monFormulaire.touched && !monFormulaire.valid">
+          Le formulaire n'est pas valide.
+      </div>
+
+  
+         
+        <label class="offset-1 col-10">Nom</label>
+        
+        <input  name="Nom" 
+                class="col-10 offset-1" 
+                type="text" 
+                [formControl]="champNom" 
+                [class.alert-danger]="champNom.touched && !champNom.valid" />
+        
+        <div *ngIf="champNom.errors">
+          <div  *ngFor="let error of cles(champNom.errors)" class="col-12 alert alert-danger" >
+            {{error}} : {{champNom.errors[error]}}
+          </div>
+        </div>
+		
+        <label class="col-10 offset-1">Prenom</label>
+        <input  name="Prenom"  
+                class="col-10 offset-1 " 
+                type="text" 
+                [formControl]="champPrenom" 
+                [class.bg-danger]="champPrenom.touched && !champPrenom.valid" />
+  
+
+        <input class="btn btn-info offset-1" 
+               type="submit" 
+               value="Valider" 
+              />
+        
+    
+    </div>
+  </div>
+   </form>

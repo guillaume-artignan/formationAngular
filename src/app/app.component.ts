@@ -11,6 +11,8 @@ export class AppComponent {
   title = 'en3s';
 
   titreArticle : string;
+  edition : boolean = false;
+  articleSelected : Article;
 
 
   articles : Article[] = [
@@ -22,4 +24,22 @@ export class AppComponent {
       this.articles.push(a);
 
     }
+
+    modifierArticle(){
+      this.edition = false;
+      this.articleSelected.setTitre(this.titreArticle);
+      this.titreArticle = "";
+    }
+
+    supprime(evt){
+      this.articles.splice(this.articles.indexOf(evt),1);
+
+    }
+
+    selectionArticle(evt){
+      this.titreArticle = evt.titre;
+      this.edition = true;
+      this.articleSelected = evt;
+    }
+    
 }

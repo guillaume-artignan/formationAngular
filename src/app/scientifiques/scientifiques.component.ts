@@ -12,7 +12,7 @@ import Personne from './personne.model';
 export class ScientifiquesComponent implements OnInit {
 
   titre : string = "Mes scientifiques";
-  personne : Personne = {};
+  
   personnes : Personne[] = new Array<Personne>(
                             new Personne("Einstein","Albert","Relativité","Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas sequi optio, dolores iure iusto ducimus enim, animi ipsum, quod nesciunt eveniet. Corporis exercitationem quas expedita ipsam earum facilis repellendus."),
                             new Personne("Faraday","Michael","Champs Electro-magnetique","Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas sequi optio, dolores iure iusto ducimus enim, animi ipsum, quod nesciunt eveniet. Corporis exercitationem quas expedita ipsam earum facilis repellendus."),
@@ -20,10 +20,12 @@ export class ScientifiquesComponent implements OnInit {
                             new Personne("Curie","Marie","Radiactivité","Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas sequi optio, dolores iure iusto ducimus enim, animi ipsum, quod nesciunt eveniet. Corporis exercitationem quas expedita ipsam earum facilis repellendus."),
                             );
 
+	personne : Personne = this.personnes[0];
+							
   constructor() {
-    this.personne = this.personnes[0];
-  }
 
+  }
+                       
   ngOnInit() {
   }
 
