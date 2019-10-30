@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Personne from './personne.model';
+import {CompteurService, DataService} from '../services';
 
 
 
@@ -7,30 +8,37 @@ import Personne from './personne.model';
 @Component({
   selector: 'app-root',
   templateUrl: './scientifiques.component.html',
-  styleUrls: ['./scientifiques.component.css']
+  styleUrls: ['./scientifiques.component.css'],
+  providers: [CompteurService]
 })
 export class ScientifiquesComponent implements OnInit {
 
   titre : string = "Mes scientifiques";
   
-  personnes : Personne[] = new Array<Personne>(
-                            new Personne("Einstein","Albert","Relativité","Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas sequi optio, dolores iure iusto ducimus enim, animi ipsum, quod nesciunt eveniet. Corporis exercitationem quas expedita ipsam earum facilis repellendus."),
-                            new Personne("Faraday","Michael","Champs Electro-magnetique","Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas sequi optio, dolores iure iusto ducimus enim, animi ipsum, quod nesciunt eveniet. Corporis exercitationem quas expedita ipsam earum facilis repellendus."),
-                            new Personne("Curie","Pierre","Radiactivité","Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas sequi optio, dolores iure iusto ducimus enim, animi ipsum, quod nesciunt eveniet. Corporis exercitationem quas expedita ipsam earum facilis repellendus."),
-                            new Personne("Curie","Marie","Radiactivité","Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem voluptas sequi optio, dolores iure iusto ducimus enim, animi ipsum, quod nesciunt eveniet. Corporis exercitationem quas expedita ipsam earum facilis repellendus."),
-                            );
+  personnes : Personne[] = [];
 
-	personne : Personne = this.personnes[0];
+  personne : Personne = new Personne("","","","");
 							
-  constructor() {
+  constructor(private compteur : CompteurService, 
+			  private data : DataService) {
+				  
+    data.donneScientifiques().then(
+      (donnees)=>{this.donneesChargees(donnees);}
+    );
 
+  }
+
+  donneesChargees(data:Personne[]){
+    this.personnes = data;
+    this.personne = this.personnes[0];                               
   }
                        
   ngOnInit() {
   }
 
   clickSur(evt){
-    console.log(evt);
+    this.compteur.ajouter();
+	
   }
 
   selectionne(p){

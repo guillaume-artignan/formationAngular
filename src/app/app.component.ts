@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Article } from './article/article.model'
+import { Article } from './article/article.model';
+import { DataService } from './services';
 
 
 @Component({
@@ -13,26 +14,49 @@ export class AppComponent {
   titreArticle : string;
   edition : boolean = false;
   articleSelected : Article;
+  interval;
 
+  articles : Article[];
+		
+	constructor (private data : DataService){
+   this.updateModel();
+   this.interval = setInterval(() => {
+     this.updateModel();
+    },1000)
+  }
+  
+  updateModel(){
+    this.data.donneArticles().then((donnees)=>{
+      var result : Article[] = new Array<Article>();
+      donnees.forEach((d)=> {
+          var a : Article = new Article(d.title,d.link,d.vote);
+          a.uuid = d.uuid;
+          result.push(a)})
 
-  articles : Article[] = [
-        new Article("Angular","http://angular.io"),
-        new Article("Google","http://google.fr")];
+      this.articles = result;
+    })
+  }
+		
 
     ajouterArticle(champ){
       var a:Article = new Article(this.titreArticle,champ.value);
-      this.articles.push(a);
+      this.data.ajouteArticle(a).then(()=>{
+        this.updateModel();
+      });
+      
 
     }
 
     modifierArticle(){
       this.edition = false;
-      this.articleSelected.setTitre(this.titreArticle);
+      this.articleSelected.setTitle(this.titreArticle);
       this.titreArticle = "";
     }
 
     supprime(evt){
-      this.articles.splice(this.articles.indexOf(evt),1);
+      this.data.supprimeArticle(evt).then(()=>{
+        this.updateModel();
+      });
 
     }
 

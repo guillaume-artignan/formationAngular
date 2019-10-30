@@ -1,5 +1,7 @@
 <div>
 
+{{compteur.donne()}}
+
 <ul>
   <li *ngFor="let p of personnes; let num = index"  
       [ngClass]="{pair:num%2==0,impair:num%2==1}"
@@ -50,4 +52,10 @@
     <option value="75000">Paris</option>
   </select>
 </div>
+
+<h2>Services</h2>
+
+<ComposantB></ComposantB>
+<ComposantB></ComposantB>
+<ComposantB></ComposantB>
 

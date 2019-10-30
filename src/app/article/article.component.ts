@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, HostBinding } from '@angular/core';
 import { Article } from "./article.model";
 import { EventEmitter } from '@angular/core';
+import { DataService } from '../services';
 
 @Component({
   selector: 'en3s-article',
@@ -19,10 +20,15 @@ export class ArticleComponent implements OnInit {
   @Output()
   selected : EventEmitter<Article> = new EventEmitter<Article>();
 
+  constructor(private data : DataService){
+
+  }
 
   votePour(evt){
     evt.preventDefault();
     this.article.voteUp();
+
+    this.data.ajouteArticle(this.article);
 
   }
 
@@ -32,13 +38,15 @@ export class ArticleComponent implements OnInit {
     if (this.article.getVote()<=-10){
       this.tooBad.emit(this.article);
     }
+
+    this.data.ajouteArticle(this.article);
   }
 
   titreClique(){
     this.selected.emit(this.article);
 
   }
-  constructor() { }
+  
 
   ngOnInit() {
   }

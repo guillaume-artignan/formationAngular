@@ -1,13 +1,15 @@
 
 export class Article {
-    private titre : string;
-    private lien : string;
+    public  uuid : string;
+    private title : string;
+    private link : string;
     private vote : number;
 
-    constructor (titre:string, lien:string, vote:number = 0){
-        this.titre = titre;
-        this.lien = lien;
+    constructor ( title:string, link:string, vote:number = 0,uuid? : string){
+        this.title = title;
+        this.link = link;
         this.vote = vote;
+        this.uuid = uuid;
     }
 
     voteUp(){    this.vote++;}
@@ -19,23 +21,27 @@ export class Article {
 
 
 
-    setTitre(titre:string){
-        this.titre = titre;
+    setTitle(title:string){
+        this.title = title;
     }
 
-    getTitre(){
-        return this.titre;
+    getTitle(){
+        return this.title;
     }
 
-    setLien(lien:string){
-        this.lien = lien;
+    setLink(link:string){
+        this.link = link;
     }
 
-    getLien(){
-        return this.lien;
+    getLink(){
+        return this.link;
     }
 
     getDomaine(){
-        return this.lien.split("//")[1];
+        if (this.link && this.link.indexOf("//")!=-1){
+            return this.link.split("//")[1];
+        }
+        return this.link;
+        
     }
 }

@@ -1,0 +1,13 @@
+<button (click)="vaChercher()" class="btn btn-primary">
+	Envoyer la requête
+</button>    
+<br>
+<pre *ngIf="data && data!='LOADING'">{{data | json}}</pre>
+
+<div *ngIf="!data">
+	Requête non envoyée
+</div>
+
+<div *ngIf="data=='LOADING'">
+	En chargement ...
+</div>
