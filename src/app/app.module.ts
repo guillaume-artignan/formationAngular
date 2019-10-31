@@ -19,7 +19,7 @@ import { VideoComponent } from './video/video.component';
 import { RepeatDirective } from './repeat.directive';
 import { TestDirectiveComponent } from './test-directive/test-directive.component';
 import { ToggleDirective } from './toggle.directive';
-
+import {ROUTES} from './routes';
 
 
 
@@ -48,7 +48,7 @@ import { ToggleDirective } from './toggle.directive';
     BrowserModule, 
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(AppModule.routes),
+    RouterModule.forRoot(ROUTES),
   	HttpClientModule
   ],
   //Contient les services
@@ -58,15 +58,6 @@ import { ToggleDirective } from './toggle.directive';
 })
 export class AppModule { 
 
-  static routes = [{path : "", component: CalculatriceComponent, nom: "Accueil"},
-                   {path : "calculatrice", component: CalculatriceComponent, nom: "Ma Calculatrice"},
-                   {path : "scientifiques", component: ScientifiquesComponent, nom: "Les Scientifiques" },
-                   {path : "basic", component: BasicRequestComponent, nom: "Exemple de Requête" },
-                   {path : "ngcontent", component: ExempleNgContentComponent, nom: "Ng Content" },
-                   {path : "scientifiques/:nom", component: ScientifiquesComponent },
-                   {path : "articles", component: AppComponent, nom: "Les Articles" },
-                   {path : "youtube", component: RechercheYoutubeComponent, nom: "Recherche Youtube" },
-                   {path : "directives", component: TestDirectiveComponent, nom: "Exemple Directives" },
-                   {path : "**", redirectTo : ""}];
+  
 
 }

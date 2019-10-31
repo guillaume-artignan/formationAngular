@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppModule } from '../app.module';
+import {ROUTES} from '../routes';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { AppModule } from '../app.module';
 })
 export class RouterComponent implements OnInit {
 
-  routes = AppModule.routes;
+  routes = ROUTES;
 
   constructor() { }
 
