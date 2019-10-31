@@ -14,6 +14,8 @@ import { BasicRequestComponent } from './basic-request/basic-request.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { RouterComponent } from './router/router.component';
+import { RechercheYoutubeComponent } from './recherche-youtube/recherche-youtube.component';
+import { VideoComponent } from './video/video.component';
 
 
 
@@ -31,7 +33,9 @@ import { RouterComponent } from './router/router.component';
     ExempleFormulaireComponent,
     ComposantBComponent,
     BasicRequestComponent,
-    RouterComponent
+    RouterComponent,
+    RechercheYoutubeComponent,
+    VideoComponent
   ],
   //Contient des Modules
   imports: [
@@ -48,10 +52,14 @@ import { RouterComponent } from './router/router.component';
 })
 export class AppModule { 
 
-  static routes = [{path : "", component: CalculatriceComponent, nom: "Accueil" },
+  static routes = [{path : "", component: CalculatriceComponent, nom: "Accueil"},
                    {path : "calculatrice", component: CalculatriceComponent, nom: "Ma Calculatrice"},
                    {path : "scientifiques", component: ScientifiquesComponent, nom: "Les Scientifiques" },
+                   {path : "basic", component: BasicRequestComponent, nom: "Exemple de Requête" },
+                   {path : "ngcontent", component: ExempleNgContentComponent, nom: "Ng Content" },
                    {path : "scientifiques/:nom", component: ScientifiquesComponent },
-                   {path : "articles", component: AppComponent, nom: "Les Articles" }];
+                   {path : "articles", component: AppComponent, nom: "Les Articles" },
+                   {path : "youtube", component: RechercheYoutubeComponent, nom: "Recherche Youtube" },
+                   {path : "**", redirectTo : ""}];
 
 }

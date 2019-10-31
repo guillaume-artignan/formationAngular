@@ -1,0 +1,30 @@
+* {
+    text-align: center;
+}
+
+h2 {
+    padding : 0px;
+    font-size: 15px;
+    height : 40px;
+    overflow: hidden;
+    font-weight: bold;
+}
+
+button {
+    width : 90%;
+    margin-left:5%;
+}
+
+button a {
+    color : white;
+    text-decoration: none;
+}
+
+p {
+    height : 100px;
+    overflow : hidden;
+}
+
+.video {
+    margin-top : 20px;
+}
