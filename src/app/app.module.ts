@@ -12,6 +12,12 @@ import { ComposantBComponent } from './composant-b/composant-b.component';
 import { CompteurService, DataService } from './services';
 import { BasicRequestComponent } from './basic-request/basic-request.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { RouterComponent } from './router/router.component';
+
+
+
+
 
 @NgModule({
   //Contient des composants
@@ -24,18 +30,28 @@ import { HttpClientModule } from '@angular/common/http';
     ComposantAComponent,
     ExempleFormulaireComponent,
     ComposantBComponent,
-    BasicRequestComponent
+    BasicRequestComponent,
+    RouterComponent
   ],
   //Contient des Modules
   imports: [
     BrowserModule, 
     FormsModule,
     ReactiveFormsModule,
-	HttpClientModule
+    RouterModule.forRoot(AppModule.routes),
+  	HttpClientModule
   ],
   //Contient les services
   providers: [CompteurService, DataService],
   //La classe de démarrage
-  bootstrap: [AppComponent]
+  bootstrap: [RouterComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  static routes = [{path : "", component: CalculatriceComponent, nom: "Accueil" },
+                   {path : "calculatrice", component: CalculatriceComponent, nom: "Ma Calculatrice"},
+                   {path : "scientifiques", component: ScientifiquesComponent, nom: "Les Scientifiques" },
+                   {path : "scientifiques/:nom", component: ScientifiquesComponent },
+                   {path : "articles", component: AppComponent, nom: "Les Articles" }];
+
+}
