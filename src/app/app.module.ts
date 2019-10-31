@@ -16,6 +16,9 @@ import { RouterModule } from '@angular/router';
 import { RouterComponent } from './router/router.component';
 import { RechercheYoutubeComponent } from './recherche-youtube/recherche-youtube.component';
 import { VideoComponent } from './video/video.component';
+import { RepeatDirective } from './repeat.directive';
+import { TestDirectiveComponent } from './test-directive/test-directive.component';
+import { ToggleDirective } from './toggle.directive';
 
 
 
@@ -35,7 +38,10 @@ import { VideoComponent } from './video/video.component';
     BasicRequestComponent,
     RouterComponent,
     RechercheYoutubeComponent,
-    VideoComponent
+    VideoComponent,
+    RepeatDirective,
+    TestDirectiveComponent,
+    ToggleDirective
   ],
   //Contient des Modules
   imports: [
@@ -60,6 +66,7 @@ export class AppModule {
                    {path : "scientifiques/:nom", component: ScientifiquesComponent },
                    {path : "articles", component: AppComponent, nom: "Les Articles" },
                    {path : "youtube", component: RechercheYoutubeComponent, nom: "Recherche Youtube" },
+                   {path : "directives", component: TestDirectiveComponent, nom: "Exemple Directives" },
                    {path : "**", redirectTo : ""}];
 
 }

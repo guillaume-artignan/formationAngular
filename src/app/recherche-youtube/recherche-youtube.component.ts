@@ -11,7 +11,7 @@ export class RechercheYoutubeComponent implements OnInit {
 
   recherche : string;
   videos : Video[] = [];
-  timer : NodeJS.Timer;
+  timer;
     
   constructor(private youtube : YoutubeService) { 
 

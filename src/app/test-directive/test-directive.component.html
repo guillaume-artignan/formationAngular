@@ -1,0 +1,55 @@
+<h2>Exemple 1</h2>
+
+<div *repeat="5">
+  Salut
+</div>
+
+<ng-template #A>
+  Mon modèle A
+</ng-template>
+
+<ng-template #B>
+    Mon modèle B
+  </ng-template>
+
+<h2>Exemple 2</h2>
+
+<input type="checkbox" [(ngModel)]="condition" />
+<div *ngIf="condition; then A ; else B">
+
+</div>
+
+
+<h2>Exemple 3</h2>
+
+<button (click)="echange()">échange</button>
+<div [ngTemplateOutlet]="templateCurrent">
+
+</div>
+
+<h2>Exemple 4</h2>
+
+<div *toggle="condition">
+  <div on>
+    Div quand je suis on
+  </div>
+  <div off>
+    Div quand je suis off
+  </div>
+  <div on>
+      Div quand je suis on
+  </div>
+
+  <div on>
+        Div quand je suis on
+  </div>
+
+  <div on>
+          Div quand je suis on
+  </div>
+</div>
+
+<div *toggle="condition">
+    <button on> Button on</button>
+    <button off> Button off</button>
+  </div>
